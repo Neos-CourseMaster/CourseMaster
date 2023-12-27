@@ -1,6 +1,6 @@
 # CourseMaster
 Neos Staj Projesi
 
-superUser
+superUser:
 admin
 123456admin
