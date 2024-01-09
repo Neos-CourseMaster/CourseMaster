@@ -319,8 +319,8 @@
 
          <ul class="dropdown-menu border-xl shadow-none" aria-labelledby="user">
              <li class="dropdown-item">
-                 <a class="dropdown-link active" href="">
-                     Account
+                 <a class="dropdown-link active" href="{% url 'profile' %}">
+                     Hesap
                  </a>
              </li>
              <li class="dropdown-item">
@@ -338,23 +338,23 @@
      {% elif user.is_authenticated %}
       <li class="nav-item dropdown border-0 px-1 px-md-3">
           <a class="nav-link dropdown-toggle" id="user" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-            Welcome , {{user.first_name}}&nbsp;{{user.last_name}}
+            Hoş Geldin , {{user.first_name}}&nbsp;{{user.last_name}}
          </a>
 
          <ul class="dropdown-menu border-xl shadow-none" aria-labelledby="user">
              <li class="dropdown-item">
-                 <a class="dropdown-link " href="">
-                     Account
+                 <a class="dropdown-link " href="{% url 'profile' %}">
+                     Hesap
                  </a>
              </li>
              <li class="dropdown-item">
                  <a class="dropdown-link" href="">
-                     Enrolled Courses
+                     Kayıtlı Kurslar
                  </a>
              </li>
              <li class="dropdown-item">
                  <a href="{% url 'logout' %}" class="dropdown-link">
-                     Logout
+                     Çıkış Yap
                  </a>
              </li>
          </ul>
