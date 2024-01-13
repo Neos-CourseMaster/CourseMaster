@@ -31,9 +31,15 @@ def SINGLE_COURSE(request):
 def filter_data(request):
     category=request.GET.getlist('category[]')
     level=request.GET.getlist('level[]')
-    print(level)
+    price=request.GET.getlist('price[]')
     
-    if category:
+    if price==['PriceFree']:
+        course = Course.objects.filter(price=0)
+    elif price==['PricePaid']:
+        course = Course.objects.filter(price__gte=1)
+    elif price==['PriceAll']:
+        course = Course.objects.all()
+    elif category:
         course=Course.objects.filter(category__id__in=category).order_by('-id')
     elif level:
         course=Course.objects.filter(level__id__in=level).order_by('-id')
