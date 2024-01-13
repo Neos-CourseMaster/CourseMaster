@@ -215,7 +215,7 @@
  </div>
 
     <!-- Search -->
-    <form class="d-none d-wd-flex ms-auto w-xl-350p">
+    <form class="d-none d-wd-flex ms-auto w-xl-350p" method="get" action="{% url 'search_course' %}">
       <div class="input-group bg-white rounded-pill overflow-hidden">
         <div class="input-group-prepend">
           <button
@@ -246,6 +246,7 @@
           type="search"
           placeholder="Kurs Adı Arayınız..."
           aria-label="Search"
+          name="query"
         />
       </div>
     </form>
@@ -303,7 +304,7 @@
         >
           <div class="card card-body p-4 mt-7 shadow-dark">
             <!-- Search -->
-            <form class="w-100">
+            <form class="w-100" method="get" action="">
               <div class="input-group border rounded">
                 <div class="input-group-prepend">
                   <button
