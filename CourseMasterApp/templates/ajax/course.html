@@ -1,6 +1,13 @@
+{% load static %}
 {% load course_tags %}
+{% if course|length < 1%}
+<img src="{% static 'assets/img/course-not-found.gif' %}" alt="Course Not Found" style="margin-left:25%; height:400px">
+{% comment %} <div class="tenor-gif-embed" data-postid="25368499" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/funny-cute-illustration-animals-adorable-gif-25368499">Funny Cute GIF</a>from <a href="https://tenor.com/search/funny-gifs">Funny GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script> {% endcomment %}
+{% else %}
+
+
 {% for i in course %}
-                    <div class="col-md pb-4 pb-md-7">
+    <div class="col-md pb-4 pb-md-7">
                         <!-- Card -->
                         <div class="card border shadow p-2 lift sk-fade">
                             <!-- Image -->
@@ -108,4 +115,6 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+{% endfor %}
+
+{% endif %}
