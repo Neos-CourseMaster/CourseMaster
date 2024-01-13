@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('',views.HOME,name='home'),
     path('courses',views.SINGLE_COURSE,name="single_course"),
+    path('product/filter-data',views.filter_data,name="filter-data"),
 
     path('contact',views.CONTACT_US,name="contact_us"),
     path('about',views.ABOUT_US,name="about_us"),
