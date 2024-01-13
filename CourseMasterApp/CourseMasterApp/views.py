@@ -59,22 +59,52 @@ def filter_data(request):
     return JsonResponse({'data': t})
 
 def CONTACT_US(request):
-    return render(request,'Main/contact_us.html')
+    category = Categories.get_all_category(Categories)
+    context = {
+        'category':category
+    }
+    return render(request,'Main/contact_us.html',context)
 
 def ABOUT_US(request):
-    return render(request,'Main/about_us.html')
+    category = Categories.get_all_category(Categories)
+    context = {
+        'category':category
+    }
+    return render(request,'Main/about_us.html',context)
 
 def SEARCH_COURSE(request):
+    category = Categories.get_all_category(Categories)
     query = request.GET["query"]
     course = Course.objects.filter(title__icontains = query)
     print(course)
     
-    content = {
+    context = {
         'course': course,
+        'category':category
     }
     
-    return render(request,"search/search.html",content)
+    return render(request,"search/search.html",context)
 
 
 def COURSE_DETAILS(request,slug):
-    return render(request,"course/course_details.html")
+    category = Categories.get_all_category(Categories)
+    
+    course = Course.objects.filter(slug=slug)
+    if course.exists():
+        course = course.first()
+    else:
+        return redirect('404')
+    
+    content = {
+        'course':course,
+        'category':category
+    }
+    
+    return render(request,"course/course_details.html",content)
+
+def PAGE_NOT_FOUND(request):
+    category = Categories.get_all_category(Categories)
+    context = {
+        'category':category
+    }
+    return render(request,'error/404.html',context)
