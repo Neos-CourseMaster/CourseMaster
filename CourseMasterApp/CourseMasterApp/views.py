@@ -74,3 +74,7 @@ def SEARCH_COURSE(request):
     }
     
     return render(request,"search/search.html",content)
+
+
+def COURSE_DETAILS(request,slug):
+    return render(request,"course/course_details.html")

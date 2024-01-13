@@ -26,6 +26,7 @@ urlpatterns = [
     path('',views.HOME,name='home'),
     path('courses',views.SINGLE_COURSE,name="single_course"),
     path('courses/filter-data',views.filter_data,name="filter-data"),
+    path('course/<slug:slug>',views.COURSE_DETAILS,name='course_details'),
     path('search',views.SEARCH_COURSE,name='search_course'),
     
     path('contact',views.CONTACT_US,name="contact_us"),
