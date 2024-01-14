@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
@@ -110,7 +111,16 @@ class Video(models.Model):
     title = models.CharField(max_length=100)
     youtube_id = models.CharField(max_length=200)
     time_duration = models.IntegerField(null=True)
-    priview = models.BooleanField(default=False)
+    preview = models.BooleanField(default=False)
     
     def __str__(self):
         return self.title
+    
+class UserCource(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    course=models.ForeignKey(Course,on_delete=models.CASCADE)
+    paid=models.BooleanField(default=0)
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.first_name + " - " + self.course.title
