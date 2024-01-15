@@ -3,6 +3,7 @@ from app.models import Categories,Course,Level,Video,UserCource
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Sum
+from django.contrib import messages
 
 def BASE(request):
     return render(request,'base.html')
@@ -127,5 +128,15 @@ def CHECKOUT(request,slug):
             course=course,
         )
         course.save()
+        messages.success(request,"Kurs Başarıyla Eklendi!")
         return redirect('home')
     return render(request,'checkout/checkout.html')
+
+
+def MY_COURSE(request):
+    course = UserCource.objects.filter(user = request.user)
+    
+    context = {
+        'course': course
+    }
+    return render(request, 'course/my-course.html',context)

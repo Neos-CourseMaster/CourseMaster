@@ -2,7 +2,7 @@ from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .EmailBackEnd import EmailBackEnd
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 
 
 #register işlemi
