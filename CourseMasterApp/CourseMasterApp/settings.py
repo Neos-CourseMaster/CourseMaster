@@ -147,3 +147,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'zafergunay7@gmail.com'
 EMAIL_HOST_PASSWORD = '6715731zaferonalan'
+
+KEY_ID="rzp_test_J7HU46PsAB8dO6"
+KEY_SECRET="1LouAbN9yxqp5zQsMvE7fvoE"
