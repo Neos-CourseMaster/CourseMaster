@@ -72,7 +72,7 @@
                 style="background-color: #243675"
               >
               {% for i in cat.course_set.all %}
-                <a class="dropdown-item" href="course-single-v1.html">
+                <a class="dropdown-item" href="{{i.get_absolute_url}}">
                   {{i.title}}
                 </a>
               {% endfor %}
