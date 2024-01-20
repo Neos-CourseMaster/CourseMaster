@@ -145,8 +145,9 @@ LOGOUT_REDIRECT_URL = 'login'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'zafergunay7@gmail.com'
-EMAIL_HOST_PASSWORD = '6715731zaferonalan'
+EMAIL_HOST_USER = 'merveonalan2@gmail.com'
+EMAIL_HOST_PASSWORD = '6715731merveonalan'
 
-KEY_ID="rzp_test_J7HU46PsAB8dO6"
-KEY_SECRET="1LouAbN9yxqp5zQsMvE7fvoE"
+KEY_ID="rzp_test_YZKM01p3OOqeur"
+KEY_SECRET="W6aotlNkG9EBacFQIuIz4EMK"
+

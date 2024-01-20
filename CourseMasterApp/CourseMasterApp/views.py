@@ -153,7 +153,7 @@ def CHECKOUT(request,slug):
             email=request.POST.get('email')
             order_comments=request.POST.get('order_comments')
 
-            amount=course.price
+            amount=(course.price * 100)
             currency="INR"
             notes={
                 "name":f'{first_name} {last_name}',
@@ -201,8 +201,8 @@ def MY_COURSE(request):
 def VERIFY_PAYMENT(request):
     if request.method == "POST":
         data = request.POST
-        print(data)
-        context = {}  # context'i tanımla, try-except içinde kullanılacak
+        # print(data)
+        context = {}
 
         try:
             client.utility.verify_payment_signature(data)
