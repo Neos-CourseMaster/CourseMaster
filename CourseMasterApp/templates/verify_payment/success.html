@@ -1,11 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Order Are Successfull</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %} Payment Success {% endblock title %}
+{% load static %}
+{% load i18n %}
+{% load course_tags %}
+{% block content %}
+<div class="container py-8 py-lg-11">
+    <div class="row">
+        <div class="col-xl8 mx-xl-auto">
+            <img src="{% static 'assets/img/success.gif' %}" alt="Success" width="20%" class="img-fluid mx-auto d-block">
+            <header class="entry-header mt-4">
+                <h1 class="entry-title text-center">Sipariş Alındı</h1>
+                <p class="text-center">Teşekkür ederim. Siparişiniz alındı.</p>
+            </header>
+            <div class="row border border-info p-4">
+                <div class="col-lg-3">
+                    Sipariş ID:<br>
+                    <strong>{{payment.order_id}}</strong>
+                </div>
+                <div class="col-lg-3">
+                    Tarih:<br>
+                    <strong>{% language 'tr' %}{{payment.date|date:"d E Y" }} {{ payment.date|date:"H:i" }}{% endlanguage %}</strong>
+                </div>
+                <div class="col-lg-3">
+                    Toplam:<br>
+                    <strong>{{payment.course.price}}₺</strong>
+                </div>
+                <div class="col-lg-3">
+                    Ödeme yöntemi:<br>
+                    <strong>Çek İle Ödemeler</strong>
+                </div>
+            </div>
+            <br>
+            <div class="row p-4 border border-dark">
+                <h2>Order details</h2>
+                <table class="table m-4">
+                    <thead>
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col" class="text-center">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">
+                            {{payment.course.title}}
+                        </td>
+                        <td class="text-center">
+                            {{payment.course.price}}₺
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                            İndirim:
+                        </th>
+                        <td class="text-center">
+                            {{payment.course.discount}}%
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Ara Toplam:</th>
+                        <td class="text-center">
+                            {% discount_calculation payment.course.price payment.course.discount %}₺
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Ödeme Metodu</th>
+                        <td class="text-center">
+                            Online Ödemeler
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Toplam:</th>
+                        <td class="text-center">
+                            {% discount_calculation payment.course.price payment.course.discount %}₺
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock content %}
