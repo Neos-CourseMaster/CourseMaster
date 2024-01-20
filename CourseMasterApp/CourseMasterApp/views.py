@@ -232,5 +232,18 @@ def VERIFY_PAYMENT(request):
             print(f"Hata: {str(e)}")
             return render(request, 'verify_payment/fail.html', context)
 
-
-
+def WATCH_COURSE(request,slug):
+    course = Course.objects.filter(slug = slug)
+    lecture = request.GET.get('lecture')
+    video = Video.objects.get(id = lecture)
+    
+    if course.exists():
+        course = course.first()
+    else:
+        return redirect('404')
+    
+    context = {
+        'course': course,
+        'video' : video
+    }
+    return render(request,'course/watch-course.html',context)

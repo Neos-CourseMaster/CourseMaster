@@ -69,6 +69,17 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function openVideo(youtubeId, width, height) {
+        var left = (window.innerWidth - width) / 2;
+        var top = (window.innerHeight - height) / 2;
+        var options = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',resizable=yes';
+        var videoUrl = 'https://youtube.com/watch?v=' + youtubeId;
+        var newWindow = window.open(videoUrl, 'Video', options);
+        newWindow.focus();
+      }
+      </script>
   </head>
 
   <body>
