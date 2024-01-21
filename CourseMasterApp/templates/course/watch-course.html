@@ -105,7 +105,7 @@
                 <div id="accordionCurriculum" class="sidebar-collapse-scroll">
                     {% for lesson in course.lesson_set.all %}
                     <div class="overflow-hidden">
-                        <div class="d-flex align-items-center" id="curriculumheadingOne">
+                        <div class="d-flex align-items-center" id="curriculumheading{{ lesson.id }}">
                             <h5 class="mb-0 w-100">
                                 <button class="d-flex align-items-center p-5 min-height-80 text-dark fw-medium collapse-accordion-toggle line-height-one" type="button" data-bs-toggle="collapse" data-bs-target="#id{{lesson.id}}" aria-expanded="true" aria-controls="CurriculumcollapseOne">
                                     <span class="me-4 text-dark d-flex">
@@ -127,7 +127,7 @@
                         </div>
 
                         {% for video in lesson.video_set.all %}
-                        <div id="id{{video.lesson.id}}" class="collapse show" aria-labelledby="curriculumheadingOne" data-parent="#accordionCurriculum">
+                        <div id="id{{video.id}}" class="collapse show" aria-labelledby="curriculumheading{{lesson.id}}" data-parent="#accordionCurriculum">
                             <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
                                 <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
                                     <div class="text-secondary d-flex">

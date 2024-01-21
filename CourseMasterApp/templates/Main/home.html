@@ -118,7 +118,7 @@
                 </a>
 
                 <!-- Preheading -->
-                <a href="course-single-v5.html"><span
+                <a href="{{i.get_absolute_url}}"><span
                     class="mb-1 d-inline-block text-gray-800">{{i.category.name}}</span></a>
 
                 <!-- Heading -->
@@ -194,6 +194,8 @@
 
         </div>
       </div>
+    </div>
+  </div>
 </section>
 
 <!-- CATEGORIES
@@ -205,7 +207,7 @@
         <h1 class="mb-1">Kategoriler</h1>
       </div>
       <div class="col-md-auto">
-        <a href="course-list-v6.html" class="d-flex align-items-center fw-medium">
+        <a href="{% url 'single_course' %}" class="d-flex align-items-center fw-medium">
           Tümüne Göz Atın
           <div class="ms-2 d-flex">
             <!-- Icon -->
@@ -223,7 +225,7 @@
       {% for i in category %}
       <div class="col mb-md-6 mb-4 px-2 px-md-4">
         <!-- Card -->
-        <a href="course-list-v6.html"
+        <a href="{% url 'single_course' %}"
           class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
           <!-- Image -->
           <div class="mt-7 text-gigas display-4">

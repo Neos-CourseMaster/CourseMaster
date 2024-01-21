@@ -1,9 +1,10 @@
-from django.shortcuts import redirect,render
-from app.models import Categories,Course,Level,Video,UserCource,Payment
+from django.shortcuts import redirect,render,get_object_or_404
+from app.models import Categories,Course,Level,Video,UserCource,Payment,Author
 from django.template.loader import render_to_string
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponseRedirect
 from django.db.models import Sum
 from django.contrib import messages
+from django.urls import reverse
 
 from django.views.decorators.csrf import csrf_exempt
 from .settings import *
@@ -85,7 +86,6 @@ def SEARCH_COURSE(request):
     category = Categories.get_all_category(Categories)
     query = request.GET["query"]
     course = Course.objects.filter(title__icontains = query)
-    print(course)
     
     context = {
         'course': course,
@@ -231,19 +231,33 @@ def VERIFY_PAYMENT(request):
             # Hata detaylarını yazdır
             print(f"Hata: {str(e)}")
             return render(request, 'verify_payment/fail.html', context)
+        
 
-def WATCH_COURSE(request,slug):
-    course = Course.objects.filter(slug = slug)
-    lecture = request.GET.get('lecture')
-    video = Video.objects.get(id = lecture)
-    
-    if course.exists():
-        course = course.first()
+def INSTRUCTORS(request):
+    authors = Author.objects.all()
+    return render(request, 'Main/instructors.html', {'authors': authors})
+
+
+
+
+
+def WATCH_COURSE(request, slug):
+    course = get_object_or_404(Course, slug=slug)
+    lecture_id = request.GET.get('lecture')
+
+    if lecture_id is not None:
+        video = get_object_or_404(Video, id=lecture_id)
     else:
-        return redirect('404')
-    
+        # Eğer lecture_id boşsa, hata mesajı göster veya başka bir işlem yap
+        error_message = "Lecture ID is missing."
+        default_video = Video.objects.first()
+        # return render(request, 'course/watch-course.html', {'course': course, 'error_message': error_message})
+        return HttpResponseRedirect(reverse('watch_course', args=[slug]) + f'?lecture={default_video.id}')
+
     context = {
         'course': course,
-        'video' : video
+        'video': video,
     }
-    return render(request,'course/watch-course.html',context)
+    return render(request, 'course/watch-course.html', context)
+
+

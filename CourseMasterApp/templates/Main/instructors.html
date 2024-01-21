@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}Eğitmenlerimiz{% endblock %}
+{% load static %} 
+{% block content %}
+{% load course_tags %}
+
+
+
+    <!-- PAGE TITLE
+    ================================================== -->
+    <header class="py-8 py-md-11" style="background-image: none;">
+        <div class="container text-center py-xl-2">
+            <h1 class="display-4 fw-semi-bold mb-0">Eğitmenlerimiz</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-scroll justify-content-center">
+                    <li class="breadcrumb-item">
+                        <a class="text-gray-800" href="/">
+                            Anasayfa
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item text-gray-800 active" aria-current="page">
+                        Eğitmenlerimiz
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <!-- Img -->
+        <img class="d-none img-fluid" src="...html" alt="...">
+    </header>
+
+
+
+    <!-- COURSE
+    ================================================== -->
+    <div class="container pb-4 pb-xl-7">
+        <div class="row row-cols-md-3 row-cols-lg-4 mb-6 mb-xl-3">
+            {% for author in authors %}
+            <div class="col-md pb-4 pb-md-7">
+                <div class="card border shadow p-2 lift">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative" >
+                        <div class="card-float card-hover right-0 left-0 bottom-0 mb-4">
+                            <ul class="nav mx-n4 justify-content-center">
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="instructors-single.html" class="card-img sk-thumbnail img-ratio-4 card-hover-overlay d-block">
+                            <img class="rounded shadow-light-lg img-fluid" src="{{ author.author_profile.url }}" alt="{{ author.name }} Profile">
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-3 pt-4 pb-1">
+                        <a href="instructors-single.html" class="d-block">
+                            <h5 class="mb-0">{{ author.name }}</h5>
+                        </a>
+                        <span class="font-size-d-sm">{{author.title_author}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+
+
+
+<!-- KADROMUZ
+    ================================================== -->
+<!-- PAGE TITLE
+    ================================================== -->
+    <header class="py-8 py-md-11" style="background-image: none;">
+        <div class="container text-center py-xl-2">
+            <h1 class="display-4 fw-semi-bold mb-0">Kadromuz</h1>
+        </div>
+    </header>
+
+
+    {% comment %} <div class="container pb-4 pb-xl-7">
+        <div class="row row-cols-md-3 row-cols-lg-4 mb-6 mb-xl-3">
+            {% for member in team_members %}
+            <div class="col-md pb-4 pb-md-7">
+                <div class="card border shadow p-2 lift">
+                    <!-- Image -->
+                    <div class="card-zoom position-relative" >
+                        <div class="card-float card-hover right-0 left-0 bottom-0 mb-4">
+                            <ul class="nav mx-n4 justify-content-center">
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item px-4">
+                                    <a href="#" class="d-block text-white">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="instructors-single.html" class="card-img sk-thumbnail img-ratio-4 card-hover-overlay d-block">
+                            <img class="rounded shadow-light-lg img-fluid" src="{{ member.member_profile.url }}" alt="{{ member.name }} Profile">
+                        </a>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer px-3 pt-4 pb-1">
+                        <a href="instructors-single.html" class="d-block">
+                            <h5 class="mb-0">{{ member.name }}</h5>
+                        </a>
+                        <span class="font-size-d-sm">{{ member.title_member }}</span>
+                        <span class="font-size-d-sm">{{ member.about_member }}</span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        {% endfor %}
+    </div> {% endcomment %}
+{% endblock content %}

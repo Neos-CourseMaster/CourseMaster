@@ -69,3 +69,8 @@ def PROFILE_UPDATE(request):
         user.save()
         messages.success(request,'Profil Başarıyla Güncellendi.')
         return redirect('profile')
+    
+def LOGOUT(request):
+    logout(request)
+    messages.success(request, 'Başarıyla çıkış yaptınız.')
+    return redirect('login')
