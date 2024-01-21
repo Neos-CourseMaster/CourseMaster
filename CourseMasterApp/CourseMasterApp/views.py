@@ -191,15 +191,18 @@ def CHECKOUT(request,slug):
 
 
 def MY_COURSE(request):
+    category = Categories.get_all_category(Categories)
     course = UserCource.objects.filter(user = request.user)
     
     context = {
-        'course': course
+        'course': course,
+        'category':category,
     }
     return render(request, 'course/my-course.html',context)
 
 @csrf_exempt
 def VERIFY_PAYMENT(request):
+    category = Categories.get_all_category(Categories)
     if request.method == "POST":
         data = request.POST
         # print(data)
@@ -225,6 +228,7 @@ def VERIFY_PAYMENT(request):
             context = {
                 'data': data,
                 'payment': payment,
+                'category':category,
             }
             return render(request, 'verify_payment/success.html', context)
         except Exception as e:
@@ -234,8 +238,18 @@ def VERIFY_PAYMENT(request):
         
 
 def INSTRUCTORS(request):
+    category = Categories.get_all_category(Categories)
+    context = {
+        'category': category,
+    }
+
+    # Get all authors
     authors = Author.objects.all()
-    return render(request, 'Main/instructors.html', {'authors': authors})
+
+    # Merge the 'context' dictionary with the 'authors' key
+    context.update({'authors': authors})
+
+    return render(request, 'Main/instructors.html', context)
 
 
 
