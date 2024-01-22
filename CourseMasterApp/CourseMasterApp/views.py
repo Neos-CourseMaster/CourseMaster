@@ -12,6 +12,7 @@ import razorpay
 client=razorpay.Client(auth=(KEY_ID,KEY_SECRET))
 from time import time
 
+# import iyzipay
 
 def BASE(request):
     return render(request,'base.html')
@@ -236,6 +237,18 @@ def VERIFY_PAYMENT(request):
             print(f"Hata: {str(e)}")
             return render(request, 'verify_payment/fail.html', context)
         
+
+# @csrf_exempt
+# def VERIFY_IYZICO(request):
+#     category = Categories.get_all_category(Categories)
+#     if request.method == "POST":
+#         data = request.POST
+#         # print(data)
+#         context = {}
+#         return render(request,"verify_payment/success.htm")
+    
+
+
 
 def INSTRUCTORS(request):
     category = Categories.get_all_category(Categories)

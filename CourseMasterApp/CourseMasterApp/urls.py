@@ -44,6 +44,7 @@ urlpatterns = [
     path('my-course',views.MY_COURSE,name='my_course'),
 
     path('verify_payment',views.VERIFY_PAYMENT,name='verify_payment'),
+    # path('verify_iyzico',views.VERIFY_IYZICO,name='verify_iyzico'),
     path('course/watch-course/<slug:slug>',views.WATCH_COURSE, name='watch_course'),
     path('logout/',user_login.LOGOUT, name='logout'),
     path('instructors',views.INSTRUCTORS,name="instructors"),

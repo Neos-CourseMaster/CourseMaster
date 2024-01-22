@@ -150,3 +150,10 @@ EMAIL_HOST_PASSWORD = '6715731merveonalan'
 KEY_ID="rzp_test_YZKM01p3OOqeur"
 KEY_SECRET="W6aotlNkG9EBacFQIuIz4EMK"
 
+# iyzico
+
+# option = {
+#     'api_key': 'sandbox-kk64WYYYSG4kNj6m3gs763sGzPFP88EQ',
+#     'secret_key': 'sandbox-Uydf7YC6ca0abvCBhGzGx5dmFKhEzg9p',
+#     'base_url': 'sandbox-api.iyzipay.com'
+# }
