@@ -17,11 +17,21 @@ class Categories(models.Model):
 
 class Author(models.Model):
     author_profile = models.ImageField(upload_to="Media/author")
+    title=models.CharField(max_length=100, null=True)
     name = models.CharField(max_length=100, null=True)
     about_author = models.TextField()
     
     def __str__(self):
         return self.name
+    
+class OurTeam(models.Model):
+    our_team = models.ImageField(upload_to="Media/ourTeam")
+    ourTeam_title=models.CharField(max_length=100, null=True)
+    ourTeam_name = models.CharField(max_length=100, null=True)
+    ourTeamabout = models.TextField()
+    
+    def __str__(self):
+        return self.ourTeam_name
     
     
 class Level(models.Model):

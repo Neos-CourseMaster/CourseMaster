@@ -47,7 +47,7 @@ urlpatterns = [
     # path('verify_iyzico',views.VERIFY_IYZICO,name='verify_iyzico'),
     path('course/watch-course/<slug:slug>',views.WATCH_COURSE, name='watch_course'),
     path('logout/',user_login.LOGOUT, name='logout'),
-    path('instructors',views.INSTRUCTORS,name="instructors"),
+    path('our_team',views.OURTEAM,name="our_team"),
     
     
 ]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

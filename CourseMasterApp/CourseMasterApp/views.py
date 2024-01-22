@@ -1,5 +1,5 @@
 from django.shortcuts import redirect,render,get_object_or_404
-from app.models import Categories,Course,Level,Video,UserCource,Payment,Author
+from app.models import Categories,Course,Level,Video,UserCource,Payment,Author,OurTeam
 from django.template.loader import render_to_string
 from django.http import JsonResponse,HttpResponseRedirect
 from django.db.models import Sum
@@ -250,7 +250,7 @@ def VERIFY_PAYMENT(request):
 
 
 
-def INSTRUCTORS(request):
+def OURTEAM(request):
     category = Categories.get_all_category(Categories)
     context = {
         'category': category,
@@ -258,11 +258,12 @@ def INSTRUCTORS(request):
 
     # Get all authors
     authors = Author.objects.all()
+    ourTeam=OurTeam.objects.all()
 
     # Merge the 'context' dictionary with the 'authors' key
-    context.update({'authors': authors})
+    context.update({'authors': authors, 'ourTeam':ourTeam})
 
-    return render(request, 'Main/instructors.html', context)
+    return render(request, 'Main/our_team.html', context)
 
 
 

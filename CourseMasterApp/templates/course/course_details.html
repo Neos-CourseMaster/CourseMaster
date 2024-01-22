@@ -10,10 +10,10 @@
   <nav class="mb-5 mb-md-8 mt-2" aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-scroll">
       <li class="breadcrumb-item">
-        <a class="text-gray-800" href="#"> Home </a>
+        <a class="text-gray-800" href="/"> Anasayfa </a>
       </li>
-      <li class="breadcrumb-item">
-        <a class="text-gray-800" href="#"> Courses </a>
+      <li class="breadcrumb-item text-gray-800" aria-current="page">
+        Kurslar
       </li>
       <li class="breadcrumb-item text-gray-800 active" aria-current="page">
         {{course.title}}
@@ -54,30 +54,19 @@
           </div>
         </div>
 
-        <div class="mb-4 mb-md-0 me-md-8 me-lg-4 me-xl-8">
-          <h6 class="mb-0">Oluşturan</h6>
+        <div class="mb-4 mb-md-0 me-md-8 me-lg-12 me-xl-12">
+          <h6 class="mb-0">Eğitmen</h6>
           <a href="#" class="font-size-sm text-gray-800"
             >{{course.author.name}}</a
           >
         </div>
 
-        <div class="mb-4 mb-md-0 me-md-8 me-lg-4 me-xl-8">
+        <div class="mb-4 mb-md-0 me-md-8 me-lg-12 me-xl-12">
           <h6 class="mb-0">Kategoriler</h6>
           <a href="#" class="font-size-sm text-gray-800">{{course.category}}</a>
         </div>
 
-        <div class="mb-4 mb-md-0 me-md-6 me-lg-4 me-xl-6">
-          <h6 class="mb-0">İnceleme</h6>
-          <div class="d-lg-flex align-items-center">
-            <div class="star-rating mb-2 mb-lg-0">
-              <div class="rating" style="width: 100%"></div>
-            </div>
-
-            <div class="font-size-sm ms-lg-3">
-              <span>9.45 (9.8k+ reviews)</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       <!-- COURSE INFO TAB
@@ -109,15 +98,6 @@
               data-bs-toggle="smooth-scroll"
               data-bs-offset="0"
               >Eğitmen</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="#Reviews"
-              data-bs-toggle="smooth-scroll"
-              data-bs-offset="0"
-              >Yorumlar</a
             >
           </li>
         </ul>
@@ -308,57 +288,18 @@
             <div class="avatar avatar-size-120">
               <img
                 src="/{{course.author.author_profile}}"
-                alt="..."
+                alt="{{course.author.author_profile}} Profile"
                 class="avatar-img rounded-circle"
               />
             </div>
           </div>
           <div class="media-body">
             <h4 class="mb-0">{{course.author.name}}</h4>
-            <span>Web Developer</span>
+            <span>{{course.author.title}}</span>
           </div>
         </div>
 
         <div class="row mx-xl-n5 mb-6">
-          <div class="col-12 col-md-auto mb-3 mb-md-0 px-xl-5">
-            <div class="d-flex align-items-center">
-              <div class="me-3 d-flex text-secondary icon-uxs">
-                <!-- Icon -->
-                <svg
-                  width="16px"
-                  height="16px"
-                  viewBox="0 -10 511.98685 511"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="currentColor"
-                    d="m114.59375 491.140625c-5.609375 0-11.179688-1.75-15.933594-5.1875-8.855468-6.417969-12.992187-17.449219-10.582031-28.09375l32.9375-145.089844-111.703125-97.960937c-8.210938-7.167969-11.347656-18.519532-7.976562-28.90625 3.371093-10.367188 12.542968-17.707032 23.402343-18.710938l147.796875-13.417968 58.433594-136.746094c4.308594-10.046875 14.121094-16.535156 25.023438-16.535156 10.902343 0 20.714843 6.488281 25.023437 16.511718l58.433594 136.769532 147.773437 13.417968c10.882813.980469 20.054688 8.34375 23.425782 18.710938 3.371093 10.367187.253906 21.738281-7.957032 28.90625l-111.703125 97.941406 32.9375 145.085938c2.414063 10.667968-1.726562 21.699218-10.578125 28.097656-8.832031 6.398437-20.609375 6.890625-29.910156 1.300781l-127.445312-76.160156-127.445313 76.203125c-4.308594 2.558594-9.109375 3.863281-13.953125 3.863281zm141.398438-112.875c4.84375 0 9.640624 1.300781 13.953124 3.859375l120.277344 71.9375-31.085937-136.941406c-2.21875-9.746094 1.089843-19.921875 8.621093-26.515625l105.472657-92.5-139.542969-12.671875c-10.046875-.917969-18.6875-7.234375-22.613281-16.492188l-55.082031-129.046875-55.148438 129.066407c-3.882812 9.195312-12.523438 15.511718-22.546875 16.429687l-139.5625 12.671875 105.46875 92.5c7.554687 6.613281 10.859375 16.769531 8.621094 26.539062l-31.0625 136.9375 120.277343-71.914062c4.308594-2.558594 9.109376-3.859375 13.953126-3.859375zm-84.585938-221.847656s0 .023437-.023438.042969zm169.128906-.0625.023438.042969c0-.023438 0-.023438-.023438-.042969zm0 0"
-                  />
-                </svg>
-              </div>
-              4.87 Instructor rating
-            </div>
-          </div>
-
-          <div class="col-12 col-md-auto mb-3 mb-md-0 px-xl-5">
-            <div class="d-flex align-items-center">
-              <div class="me-3 d-flex text-secondary icon-uxs">
-                <!-- Icon -->
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.96092 7.89061C10.3924 7.89061 10.7422 8.24034 10.7422 8.67186C10.7422 9.10338 10.3924 9.45311 9.96092 9.45311C9.5294 9.45311 9.17967 9.10338 9.17967 8.67186C9.17967 8.24034 9.5294 7.89061 9.96092 7.89061ZM12.6953 8.67186C12.6953 9.10338 13.045 9.45311 13.4765 9.45311C13.9081 9.45311 14.2578 9.10338 14.2578 8.67186C14.2578 8.24034 13.9081 7.89061 13.4765 7.89061C13.045 7.89061 12.6953 8.24034 12.6953 8.67186ZM5.66405 8.67186C5.66405 9.10338 6.01378 9.45311 6.4453 9.45311C6.87682 9.45311 7.22655 9.10338 7.22655 8.67186C7.22655 8.24034 6.87682 7.89061 6.4453 7.89061C6.01378 7.89061 5.66405 8.24034 5.66405 8.67186ZM19.313 15.9985C20.2273 16.9128 20.2273 18.3996 19.3135 19.3135C18.8566 19.7703 18.2563 19.9989 17.6562 19.9989C17.0561 19.9989 16.4558 19.7703 15.999 19.3135L11.7103 15.0345C11.6192 14.9435 11.5521 14.8317 11.5147 14.7084L10.5806 11.6333C10.4977 11.3606 10.5699 11.0646 10.7689 10.8606C10.9678 10.6567 11.262 10.5774 11.5367 10.6534L14.6899 11.5268C14.8198 11.5628 14.938 11.6316 15.0334 11.7268L19.313 15.9985ZM12.9527 14.0667L15.8468 16.9545L16.9519 15.8494L14.0748 12.9779L12.4885 12.5384L12.9527 14.0667ZM18.2086 17.1038L18.0578 16.9532L16.9529 18.0581L17.1032 18.208C17.4084 18.5133 17.904 18.5133 18.2086 18.2086C18.5133 17.904 18.5133 17.4084 18.2086 17.1038ZM10.4346 16.1895C10.2902 16.1958 10.144 16.199 9.99998 16.199C8.74373 16.199 7.53432 15.9651 6.40547 15.5038C6.21321 15.4254 5.99746 15.4266 5.80611 15.5073L2.24884 17.0089L3.44741 14.1697C3.5646 13.8922 3.51165 13.5718 3.31115 13.3465C2.1672 12.0614 1.5625 10.5238 1.5625 8.90028C1.5625 4.85427 5.34759 1.5625 9.99998 1.5625C14.6524 1.5625 18.4375 4.85427 18.4375 8.90028C18.4375 9.85975 18.2019 10.823 17.7371 11.7631C17.5459 12.1499 17.7044 12.6185 18.0912 12.8097C18.4781 13.0009 18.9466 12.8424 19.1378 12.4556C19.7099 11.2982 20 10.1021 20 8.90028C20 3.99261 15.514 0 9.99998 0C4.48608 0 0 3.99261 0 8.90028C0 10.7527 0.628051 12.507 1.82174 14.0031L0.0614928 18.1727C-0.0621032 18.4655 0.00411988 18.8041 0.228881 19.0289C0.378417 19.1784 0.578154 19.2578 0.781401 19.2578C0.883787 19.2578 0.987089 19.2376 1.08505 19.1963L6.12136 17.0703C7.34969 17.5291 8.65294 17.7615 9.99998 17.7615C10.1666 17.7615 10.3358 17.7577 10.5029 17.7505C10.934 17.7316 11.2681 17.3669 11.2492 16.9359C11.2304 16.5048 10.865 16.1696 10.4346 16.1895Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-              1,533 reviews
-            </div>
-          </div>
 
           <div class="col-12 col-md-auto mb-3 mb-md-0 px-xl-5">
             <div class="d-flex align-items-center">
@@ -376,7 +317,7 @@
                   />
                 </svg>
               </div>
-              23,912 students
+              {{course.usercource_set.all.count}} öğrenci
             </div>
           </div>
 
@@ -396,7 +337,7 @@
                   />
                 </svg>
               </div>
-              29 courses
+              {{course.usercource_set.all.count}} Kurs
             </div>
           </div>
         </div>
@@ -404,16 +345,18 @@
         <p class="mb-6 line-height-md">{{course.author.about_author}}</p>
       </div>
     </div>
-
+    
     <div class="col-lg-4">
       <!-- SIDEBAR FILTER
                 ================================================== -->
       <div class="d-block rounded border p-2 shadow mb-6">
+        
         <a
           href="https://www.youtube.com/watch?v=MYf0K4Li2NE&list=PLK-Y7MqjKK0B8OD1j3k-1QAzGZLT50Sab"
           class="d-block sk-thumbnail rounded mb-1"
           data-fancybox
         >
+        
           <div
             class="h-60p w-60p rounded-circle bg-white size-20-all d-inline-flex align-items-center justify-content-center position-absolute center z-index-1"
           >
@@ -435,14 +378,15 @@
             class="rounded shadow-light-lg"
             src="{{course.featured_image}}"
             alt="..."
-          />{% endfor %}
+          />
+          {% endfor %}
         </a>
-
+        
         <div class="pt-5 pb-4 px-5 px-lg-3 px-xl-5">
           {% if course.price == 0 %}
 
           <div class="d-flex align-items-center mb-2">
-            <ins class="h2 mb-0 text-primary">Free</ins>
+            <ins class="h2 mb-0 text-primary">Ücretsiz</ins>
 
             <div
               class="badge badge-lg badge-purple text-white ms-auto fw-normal"
@@ -460,7 +404,7 @@
             <div
               class="badge badge-lg badge-purple text-white ms-auto fw-normal"
             >
-              91% İndirim
+            {{course.discount}}% İndirim
             </div>
           </div>
           {% endif %}
@@ -538,7 +482,7 @@
                 </svg>
               </div>
               <h6 class="mb-0 ms-3 me-auto">Süre</h6>
-              <span>{{time_duration.sum}} min</span>
+              <span>{{time_duration.sum}} dakika</span>
             </li>
             <li
               class="list-group-item d-flex align-items-center py-3"
@@ -684,7 +628,7 @@
                   />
                 </svg>
               </div>
-              <h6 class="mb-0 ms-3 me-auto">Son teslim tarihi</h6>
+              <h6 class="mb-0 ms-3 me-auto">Erişim</h6>
               <span>{{course.Deadline}}</span>
             </li>
             <li
@@ -716,42 +660,7 @@
               class="list-group-item d-flex align-items-center py-4"
               style="background-color: #f7f9fb"
             >
-              <a
-                href="course-single-v5.html"
-                class="mx-auto text-teal fw-medium d-flex align-items-center mt-2"
-              >
-                <!-- Icon -->
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M16.0283 6.25C14.3059 6.25 12.9033 4.84833 12.9033 3.125C12.9033 1.40167 14.3059 0 16.0283 0C17.7509 0 19.1533 1.40167 19.1533 3.125C19.1533 4.84833 17.7509 6.25 16.0283 6.25ZM16.0283 1.25C14.995 1.25 14.1533 2.09076 14.1533 3.125C14.1533 4.15924 14.995 5 16.0283 5C17.0616 5 17.9033 4.15924 17.9033 3.125C17.9033 2.09076 17.0616 1.25 16.0283 1.25Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M16.0283 20C14.3059 20 12.9033 18.5983 12.9033 16.875C12.9033 15.1517 14.3059 13.75 16.0283 13.75C17.7509 13.75 19.1533 15.1517 19.1533 16.875C19.1533 18.5983 17.7509 20 16.0283 20ZM16.0283 15C14.995 15 14.1533 15.8408 14.1533 16.875C14.1533 17.9092 14.995 18.75 16.0283 18.75C17.0616 18.75 17.9033 17.9092 17.9033 16.875C17.9033 15.8408 17.0616 15 16.0283 15Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M3.94531 13.125C2.22275 13.125 0.820312 11.7233 0.820312 10C0.820312 8.27667 2.22275 6.875 3.94531 6.875C5.66788 6.875 7.07031 8.27667 7.07031 10C7.07031 11.7233 5.66788 13.125 3.94531 13.125ZM3.94531 8.125C2.91199 8.125 2.07031 8.96576 2.07031 10C2.07031 11.0342 2.91199 11.875 3.94531 11.875C4.97864 11.875 5.82031 11.0342 5.82031 10C5.82031 8.96576 4.97864 8.125 3.94531 8.125Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M6.12066 9.39154C5.90307 9.39154 5.69143 9.27817 5.57729 9.0766C5.40639 8.77661 5.51061 8.39484 5.8106 8.22409L13.5431 3.81568C13.8422 3.64325 14.2247 3.74823 14.3947 4.04914C14.5656 4.34912 14.4614 4.73075 14.1614 4.90164L6.42888 9.30991C6.33138 9.36484 6.22564 9.39154 6.12066 9.39154Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M13.8524 16.2665C13.7475 16.2665 13.6416 16.2398 13.5441 16.1841L5.81151 11.7757C5.51152 11.6049 5.40745 11.2231 5.5782 10.9232C5.74818 10.6224 6.12996 10.5182 6.42994 10.6899L14.1623 15.0981C14.4623 15.269 14.5665 15.6506 14.3958 15.9506C14.2807 16.1531 14.0691 16.2665 13.8524 16.2665Z"
-                    fill="currentColor"
-                  />
-                </svg>
-
-                <span class="ms-3">Bu kursu paylaş</span>
-              </a>
+              
             </li>
           </ul>
         </div>
