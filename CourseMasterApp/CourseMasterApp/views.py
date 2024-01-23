@@ -194,10 +194,12 @@ def CHECKOUT(request,slug):
 def MY_COURSE(request):
     category = Categories.get_all_category(Categories)
     course = UserCource.objects.filter(user = request.user)
+    # time_duration=Video.objects.filter(course__slug=slug).aggregate(sum=Sum('time_duration'))
     
     context = {
         'course': course,
         'category':category,
+        # 'time_duration':time_duration,
     }
     return render(request, 'course/my-course.html',context)
 
