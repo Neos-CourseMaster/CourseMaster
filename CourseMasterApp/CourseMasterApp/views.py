@@ -258,11 +258,9 @@ def OURTEAM(request):
         'category': category,
     }
 
-    # Get all authors
     authors = Author.objects.all()
     ourTeam=OurTeam.objects.all()
 
-    # Merge the 'context' dictionary with the 'authors' key
     context.update({'authors': authors, 'ourTeam':ourTeam})
 
     return render(request, 'Main/our_team.html', context)
