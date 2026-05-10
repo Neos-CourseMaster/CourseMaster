@@ -101,10 +101,12 @@ def COURSE_DETAILS(request,slug):
     time_duration=Video.objects.filter(course__slug=slug).aggregate(sum=Sum('time_duration'))
 
     course_id=Course.objects.get(slug=slug)
-    try:
-        check_enroll=UserCource.objects.get(user=request.user,course=course_id)
-    except UserCource.DoesNotExist:
-        check_enroll=None
+    check_enroll = None
+    if request.user.is_authenticated:
+        try:
+            check_enroll = UserCource.objects.get(user=request.user, course=course_id)
+        except UserCource.DoesNotExist:
+            check_enroll = None
     course = Course.objects.filter(slug=slug)
     if course.exists():
         course = course.first()
